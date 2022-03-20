@@ -38,8 +38,20 @@ jobs:
         with:
           path: |
                 sources
-          key: CoreELEC-Phicomm-N1-sources-${{ runner.os }}-${{ hashFiles('./mkn1') }}
+          key: CoreELEC-Phicomm-N1-sources-Linux-f658d7aaa8d24611e03401b1dd7ba2d170a8c01b3f84a34d29e03cb480f9f0f6
 
       - name: Run build
         run: ./mkn1
+        
+      - name: List folder
+        run: |
+          ls -ltr /home/runner/work/CoreELEC/CoreELEC
+          ls -ltr /home/runner/work/CoreELEC/CoreELEC/*
+          ls -ltr /home/runner/work/CoreELEC/CoreELEC/*/image
+      - name : Upload artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: coreelec
+          path: /home/runner/work/CoreELEC/CoreELEC/*/image/*.img
+
       
