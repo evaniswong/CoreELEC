@@ -52,6 +52,6 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: coreelec
-          path: /home/runner/work/CoreELEC/CoreELEC/*/image/*.img
+          path: /home/runner/work/CoreELEC/CoreELEC/*/target/*Phicomm_N1.img.gz
 
       
