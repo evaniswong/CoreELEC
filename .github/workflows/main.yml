@@ -38,7 +38,6 @@ jobs:
         with:
           path: |
                 sources
-                target
           key: CoreELEC-Phicomm-N1-sources-Linux-f658d7aaa8d24611e03401b1dd7ba2d170a8c01b3f84a34d29e03cb480f9f0f6
 
       - name: Run build
