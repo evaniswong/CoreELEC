@@ -4,10 +4,10 @@ name: CI
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the n1-19 branch
-  push:
-    branches: [ n1-19 ]
-  pull_request:
-    branches: [ n1-19 ]
+  #push:
+  #  branches: [ n1-19 ]
+  #pull_request:
+  #  branches: [ n1-19 ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -42,4 +42,14 @@ jobs:
 
       - name: Run build
         run: ./mkn1
+      - name: List folder
+        run: |
+          ls -ltr /home/runner/work/CoreELEC/CoreELEC
+          ls -ltr /home/runner/work/CoreELEC/CoreELEC/*
+          ls -ltr /home/runner/work/CoreELEC/CoreELEC/*/image
+      - name : Upload artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: coreelec
+          path: /home/runner/work/CoreELEC/CoreELEC/target/*Phicomm_N1.img.gz
       
